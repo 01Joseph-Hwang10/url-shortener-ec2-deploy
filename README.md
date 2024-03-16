@@ -1,4 +1,4 @@
-# HeXA Bootcamp 2024 Backend Track 과제 #2
+# HeXA Bootcamp 2024 Backend Track 과제 #2 (WIP)
 
 ![Hexa Bootcamp Logo](docs/assets/hexa-bootcamp-logo.png)
 
