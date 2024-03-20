@@ -71,13 +71,20 @@ AWS Management Console에 로그인하여 EC2 인스턴스를 생성합니다. �
 - 운영 체제: Debian 12
 - 보안 그룹: **HTTP, HTTPS 트래픽을 허용하는 보안 그룹 생성**
 
+#### Materials
+
+- [AWS EC2 인스턴스 생성 방법](./docs/how-to-create-ec2-instance.md)
+- [AWS EC2 인스턴스 SSH 연결 방법](./docs/how-to-connect-to-ec2-instance.md)
+
 ### 6. 인스턴스 set-up 스크립트 작성 및 실행
 
-URL Shortener를 배포하기 위한 인스턴스 set-up 스크립트를 작성합니다. 이 스크립트는 다음과 같은 작업을 수행해야 합니다.
+URL Shortener를 배포하기 위한 인스턴스 set-up 스크립트를 작성합니다. 
+이 스크립트는 다음과 같은 작업을 수행해야 할 것입니다.
 
 - `apt update` 및 `apt upgrade` 명령어를 통한 패키지 업데이트
 - Docker 설치
 - Nginx 설치
+- ...
 
 > [!NOTE]\
 > Set-up script는 SSH 등을 통해 직접 인스턴스에 접속해서 테스트하는 것이 훨씬 편할 것이기 때문에, 
@@ -101,20 +108,26 @@ Postman, cURL 등을 사용하여 외부에서 인스턴스의 public 도메인�
 
 ### 10. 과제 제출
 
-위의 모든 과정을 완료하신 후, 최종적으로 `deploy` 브랜치에 변경사항을 커밋하고, `deploy` -> `develop` 브랜치로 Pull Request를 생성하여 과제를 제출합니다. PR에는 URL Shortener를 배포하기 위해 어떤 작업을 했는지에 대한 설명을 간략히 작성해주시면 됩니다.
+위의 모든 과정을 완료하신 후, 최종적으로 `deploy` 브랜치에 변경사항을 커밋하고, `deploy` -> `develop` 브랜치로 Pull Request를 생성하여 과제를 제출합니다. PR에는 URL Shortener를 배포하기 위해 어떤 작업을 했는지에 대한 설명을 간략히 작성해주시고, URL Shortener를 배포한 EC2 인스턴스의 public http url을 함께 첨부해주시기 바랍니다.
 
-본 과제 제출 시에 추가되어야 하는 파일은 다음과 같습니다.
+> [!NOTE]\
+> EC2 인스턴스의 public URL은 해당 EC2 인스턴스의 상세 정보 페이지에서 확인할 수 있습니다.
 
-- `Dockerfile`
-- Nginx 설정 파일
-- set-up 스크립트
+![ec2-dashboard](./docs/assets/ec2-dashboard.png)
+![ec2-instance-status](./docs/assets/ec2-instance-status.png)
+
+본 과제 제출 시에 필수로 추가되어야 하는 파일은 다음과 같습니다.
+
+- 배포 시에 사용한 `Dockerfile`
+- 배포 시에 사용한 Nginx 설정 파일
+- 배포 시에 사용한 set-up 스크립트 (bash 스크립트 등)
 
 ## 과제 평가 기준
 
 
 본 과제는 다음과 같은 기준으로 평가됩니다.
 
-- URL Shortener가 EC2 인스턴스에 배포되어 외부에서 접근 가능한지 여부
+- URL Shortener가 EC2 인스턴스의 public http url로 외부에서 접근 가능한지 여부
 - URL Shortener의 기능들이 정상적으로 동작하는지 여부
 
 
